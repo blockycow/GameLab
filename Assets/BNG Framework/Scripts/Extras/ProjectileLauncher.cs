@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace BNG {
@@ -54,6 +55,7 @@ namespace BNG {
             return null;
         }
 
+        [Button("Shoot")]
         public void ShootProjectile() {
             ShootProjectile(ProjectileForce);
         }
@@ -62,7 +64,7 @@ namespace BNG {
             ProjectileForce = force;
         }
 
-        public float GetInitialProjectileForce() {
+        public float GetInitialProjectileForce() { 
             return _initialProjectileForce;
         }
     }
