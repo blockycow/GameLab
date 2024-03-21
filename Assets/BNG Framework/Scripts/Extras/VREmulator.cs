@@ -41,7 +41,7 @@ namespace BNG {
 
         [Tooltip("Maximum height in meters the player can grow to when using the PlayerUpAction")]
         public float MaxPlayerHeight = 5f;
-
+        
         [Header("Head Look")]
         [Tooltip("Unity Input Action used to lock the camera in game mode to look around")]
         public InputActionReference LockCameraAction;
@@ -313,10 +313,10 @@ namespace BNG {
 
             // Player Up / Down
             if(AllowUpDownControls) {
-                if (PlayerUpAction != null && PlayerUpAction.action.ReadValue<float>() == 1) {
+                if (PlayerUpAction != null && PlayerUpAction.action.ReadValue<float>() >= 0.9f) {
                     player.ElevateCameraHeight = Mathf.Clamp(player.ElevateCameraHeight + Time.deltaTime, MinPlayerHeight, MaxPlayerHeight);
                 }
-                else if (PlayerDownAction != null && PlayerDownAction.action.ReadValue<float>() == 1) {
+                else if (PlayerDownAction != null && PlayerDownAction.action.ReadValue<float>() >= 0.9f) {
                     player.ElevateCameraHeight = Mathf.Clamp(player.ElevateCameraHeight - Time.deltaTime, MinPlayerHeight, MaxPlayerHeight);
                 }
             }

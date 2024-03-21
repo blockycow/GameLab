@@ -1,19 +1,15 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BNG {
-
-    public enum MovementVector {
-        HMD,
-        Controller
-    }    
-
-    public class SmoothLocomotion : MonoBehaviour {
-
-        public PlayerControllerType ControllerType = PlayerControllerType.CharacterController;
+namespace BNG
+{
+    
+public class SmoothLocomotionBackup : MonoBehaviour
+{
+    public PlayerControllerType ControllerType = PlayerControllerType.CharacterController;
 
         [Header("CharacterController Settings : ")]
         public float MovementSpeed = 1.25f;
@@ -66,9 +62,6 @@ namespace BNG {
 
         [Tooltip("Input Action used to affect movement")]
         public InputActionReference MoveAction;
-        
-        [Tooltip("Input Action used to affect flying")]
-        public InputActionReference FlyAction;
 
         [Tooltip("If true, movement events will only be sent if the Application has focus (Or Play window, if running in the Unity Editor)")]
         public bool RequireAppFocus = true;
@@ -204,8 +197,6 @@ namespace BNG {
                 movementZ = primaryAxis.y * AirControlSpeed;
             }
 
-            movementY = GetFlyAxis();
-            
             // Add Jump Force
             if (CheckJump()) {
                 // Add movement directly to CC type
@@ -221,12 +212,10 @@ namespace BNG {
             if(CheckSprint()) {
                 movementX *= StrafeSprintSpeed;
                 movementZ *= SprintSpeed;
-                movementY *= SprintSpeed;
             }
             else {
                 movementX *= StrafeSpeed;
                 movementZ *= MovementSpeed;
-                movementY *= MovementSpeed;
             }            
         }
 
@@ -278,14 +267,8 @@ namespace BNG {
             }
 
             return lastAxisValue;
-        }
+        }        
 
-        public float GetFlyAxis()
-        {
-            float axisVal = FlyAction.action.ReadValue<float>();
-            return axisVal;
-        }
-        
         public virtual void MoveCharacter() {
 
             // Bail early if no elligible for movement
@@ -311,10 +294,7 @@ namespace BNG {
                 }
             }
 
-            if (!AirControl)
-            {
-                moveDirection.y = _verticalSpeed;
-            }
+            moveDirection.y = _verticalSpeed;
 
             if(playerController) {
                 playerController.LastPlayerMoveTime = Time.time;
@@ -617,10 +597,4 @@ namespace BNG {
             }
         }
     }
-
-    public enum PlayerControllerType {
-        CharacterController,
-        Rigidbody
-    }
 }
-

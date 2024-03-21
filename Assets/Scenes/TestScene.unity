@@ -710,6 +710,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 212106516636049975, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227366666306621424, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305568275153633646, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 324872962919912658, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 388426985390236673, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 388426986089250152, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: FlyAction
+      value: 
+      objectReference: {fileID: -1198934966304678360, guid: 27bafa1c7d8a77b47985ab70c0511986,
+        type: 3}
     - target: {fileID: 388426986089250152, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
       propertyPath: m_Enabled
@@ -717,8 +748,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 388426986089250152, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
+      propertyPath: SprintSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 388426986089250152, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
       propertyPath: MovementSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 388426986089250152, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: ForwardDirection
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 388426986639344527, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1020761219127564786, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
@@ -780,6 +826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR RIg Advanced Dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 1654882165994971375, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1731533695562630309, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,9 +851,51 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8d2350eccc998664eac8500ad7d9f670, type: 2}
+    - target: {fileID: 3962153676543799371, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: FlyUpAction
+      value: 
+      objectReference: {fileID: 4365227591931942871, guid: 27bafa1c7d8a77b47985ab70c0511986,
+        type: 3}
+    - target: {fileID: 3962153676543799371, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: FlyDownAction
+      value: 
+      objectReference: {fileID: -1799041290623480064, guid: 27bafa1c7d8a77b47985ab70c0511986,
+        type: 3}
+    - target: {fileID: 4769356661448149964, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4881872309217908786, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
       propertyPath: GravityEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826104619869750295, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120660052855231423, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226416070519423596, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: DefaultHandsModel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961599787245177212, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108680304498532816, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
