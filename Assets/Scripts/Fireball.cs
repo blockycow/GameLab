@@ -21,7 +21,6 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("BAM");
         var explosion = Instantiate(explosionObj, transform.position, quaternion.identity);
         explosion.transform.localScale = Vector3.zero;
         explosion.transform.DOScale(radius / 3.0f, 0.2f).SetEase(Ease.OutCubic);

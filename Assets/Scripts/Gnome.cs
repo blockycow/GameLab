@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gnome : MonoBehaviour, ICollidable
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] float torqueMagnitude = 5f;
+    //[SerializeField] float torqueMagnitude = 5f;
     public void Collide(Collider collision, float force)
     {
         var forceSpread = force / 2.0f;
