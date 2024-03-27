@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDelete: {fileID: 0}
-  seconds: 0.3
+  seconds: 0.4
 --- !u!1 &4973218374972721674
 GameObject:
   m_ObjectHideFlags: 0

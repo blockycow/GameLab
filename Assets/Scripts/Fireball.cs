@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,7 +23,8 @@ public class Fireball : MonoBehaviour
     {
         print("BAM");
         var explosion = Instantiate(explosionObj, transform.position, quaternion.identity);
-        explosion.transform.localScale = new Vector3(radius/3.0f, radius/3.0f, radius/3.0f);
+        explosion.transform.localScale = Vector3.zero;
+        explosion.transform.DOScale(radius / 3.0f, 0.2f).SetEase(Ease.OutCubic);
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
 
