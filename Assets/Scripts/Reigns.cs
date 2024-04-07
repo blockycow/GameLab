@@ -1,28 +1,55 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class Reigns : MonoBehaviour
 {
     [SerializeField] private float speedAdjustment;
+    [SerializeField] private float flySpeedAdjustment;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform grabbableReigns;
     [SerializeField] private Transform pivot;
     
     CharacterController characterController;
+
+    [SerializeField] private InputActionReference FlyToggleAction;
+    private bool flying;
     
-    // Start is called before the first frame update
     void Start()
     {
         characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
     }
+    
+    private void Update()
+    {
+        if (FlyToggleAction.action.inProgress )
+        {
+            flying = true;
+        }
+        else
+        {
+            flying = false;
 
-    // Update is called once per frame
+        }
+    }
     void FixedUpdate()
     {
-        // Gets a vector that points from the pivot's position to the reign's.
-        var heading = grabbableReigns.position - pivot.position;
+        var heading = grabbableReigns.localPosition;
         if(heading == Vector3.zero) return;
-        characterController.Move(heading * speedAdjustment);
+        if (flying)
+        {
+            characterController.transform.Rotate(new Vector3(0, heading.x * rotationSpeed,0));
+            
+            //TODO increase flight speed with reigns position
+            heading = new Vector3(0, heading.y, heading.z);
+            characterController.Move((transform.forward) * flySpeedAdjustment);
+        }
+        else
+        {
+            characterController.Move(heading * speedAdjustment);
+        }
     }
 }

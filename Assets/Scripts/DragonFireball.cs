@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class DragonFireball : MonoBehaviour
 {
+    [SerializeField] private float force = 5f;
     [SerializeField] private InputActionReference triggerAction;
     [SerializeField] private Transform barrel;
     [SerializeField] private Fireball fireball;
@@ -21,6 +22,6 @@ public class DragonFireball : MonoBehaviour
     private void Shoot()
     {
         var ball = Instantiate(fireball, barrel.position, barrel.rotation);
-        ball.GetComponent<Rigidbody>().AddForce(barrel.forward * 5f, ForceMode.Impulse);
+        ball.GetComponent<Rigidbody>().AddForce(barrel.forward * force, ForceMode.Impulse);
     }
 }

@@ -19,8 +19,9 @@ public class Fireball : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
+        print(other.gameObject.name);
         var explosion = Instantiate(explosionObj, transform.position, quaternion.identity);
         explosion.transform.localScale = Vector3.zero;
         explosion.transform.DOScale(radius / 3.0f, 0.2f).SetEase(Ease.OutCubic);
@@ -36,5 +37,4 @@ public class Fireball : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
-    
 }
