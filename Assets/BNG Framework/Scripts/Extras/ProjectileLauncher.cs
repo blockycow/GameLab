@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -17,6 +18,11 @@ namespace BNG {
 
         public ParticleSystem LaunchParticles;
 
+        [SerializeField] private bool repeating = false;
+        [SerializeField] private bool onStart = false;
+        [SerializeField] private Cooldown cd;
+
+        
         /// <summary>
         /// Where the projectile will launch from
         /// </summary>
@@ -28,6 +34,20 @@ namespace BNG {
         void Start() {
             // Setup initial velocity for launcher so we can modify it later
             _initialProjectileForce = ProjectileForce;
+
+            if (onStart)
+            {
+                ShootProjectile();
+            }
+        }
+
+        private void Update()
+        {
+            if (!repeating) return;
+            if(cd.IsCoolingDown) return;
+            
+            ShootProjectile();
+            cd.StartCooldown();
         }
 
         /// <summary>
