@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - OUTLINE_FADE_OUT
   - OUTLINE_USE_DEPTH
   - OUTLINE_USE_NORMALS
   m_InvalidKeywords: []
@@ -44,11 +45,11 @@ Material:
     - _ColorThresholdMin: 0
     - _DepthThresholdMax: 2
     - _DepthThresholdMin: 0.15
-    - _FadeRangeEnd: 50
-    - _FadeRangeStart: 10
+    - _FadeRangeEnd: 1000
+    - _FadeRangeStart: 600
     - _NormalThresholdMax: 1
     - _NormalThresholdMin: 0.3
-    - _Thickness: 1
+    - _Thickness: 0
     m_Colors:
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
@@ -65,11 +66,11 @@ MonoBehaviour:
   m_Name: FruitVaseScene-Var-OutlineSettings
   m_EditorClassIdentifier: 
   edgeColor: {r: 0, g: 0, b: 0, a: 1}
-  thickness: 1
+  thickness: 0
   resolutionInvariant: 0
-  fadeWithDistance: 0
-  fadeRangeStart: 10
-  fadeRangeEnd: 50
+  fadeWithDistance: 1
+  fadeRangeStart: 600
+  fadeRangeEnd: 1000
   useDepth: 1
   minDepthThreshold: 0.15
   maxDepthThreshold: 2

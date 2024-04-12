@@ -25,15 +25,7 @@ public class Reigns : MonoBehaviour
     
     private void Update()
     {
-        if (FlyToggleAction.action.inProgress )
-        {
-            flying = true;
-        }
-        else
-        {
-            flying = false;
-
-        }
+        flying = FlyToggleAction.action.inProgress;
     }
     void FixedUpdate()
     {
@@ -49,6 +41,7 @@ public class Reigns : MonoBehaviour
         }
         else
         {
+            heading = grabbableReigns.position - pivot.position;
             characterController.Move(heading * speedAdjustment);
         }
     }
