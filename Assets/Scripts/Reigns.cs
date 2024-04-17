@@ -7,20 +7,21 @@ using UnityEngine.Serialization;
 
 public class Reigns : MonoBehaviour
 {
+    [SerializeField] private Transform targetTransform;
     [SerializeField] private float speedSensitivity;
     [SerializeField] private float flySpeedSensitivity;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform grabbableReigns;
     [SerializeField] private Transform pivot;
     [SerializeField] private float deadZone;
-    CharacterController characterController;
 
     [SerializeField] private InputActionReference FlyToggleAction;
     private bool flying;
+    private Rigidbody rb;
     
     void Start()
     {
-        characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
+        rb = targetTransform.GetComponent<Rigidbody>();
     }
     
     private void Update()
@@ -33,16 +34,18 @@ public class Reigns : MonoBehaviour
         if(!CheckDeadzone()) return;
         if (flying)
         {
-            characterController.transform.Rotate(new Vector3(0, heading.x * rotationSpeed,0));
+            //characterController.transform.Rotate(new Vector3(0, heading.x * rotationSpeed,0));
             
             //TODO increase flight speed with reigns position
             heading = new Vector3(0, heading.y, heading.z);
-            characterController.Move((transform.forward) * flySpeedSensitivity);
+            //characterController.Move((transform.forward) * flySpeedSensitivity);
+            rb.AddForce((transform.forward) * flySpeedSensitivity);
         }
         else
         {
             heading = grabbableReigns.position - pivot.position;
-            characterController.Move(heading * speedSensitivity);
+            //characterController.Move(heading * speedSensitivity);
+            rb.AddForce(heading * speedSensitivity);
         }
     }
 
