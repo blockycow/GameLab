@@ -10,6 +10,7 @@ public class Reigns : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private float speedSensitivity;
     [SerializeField] private float flySpeedSensitivity;
+    [SerializeField] private float acceleration; 
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform grabbableReigns;
     [SerializeField] private Transform pivot;
@@ -18,10 +19,14 @@ public class Reigns : MonoBehaviour
     [SerializeField] private InputActionReference FlyToggleAction;
     private bool flying;
     private Rigidbody rb;
+    private CharacterController characterController;
+
+    private float currentSpeed = 0;
     
     void Start()
     {
-        rb = targetTransform.GetComponent<Rigidbody>();
+        //rb = targetTransform.GetComponent<Rigidbody>();
+        characterController = targetTransform.GetComponent<CharacterController>();
     }
     
     private void Update()
@@ -31,21 +36,50 @@ public class Reigns : MonoBehaviour
     void FixedUpdate()
     {
         var heading = grabbableReigns.localPosition;
-        if(!CheckDeadzone()) return;
+        if(CheckDeadzone())
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed -= (acceleration * 2);
+            }
+            else
+            {
+                currentSpeed = 0;
+            }
+        }
+        
         if (flying)
         {
             //characterController.transform.Rotate(new Vector3(0, heading.x * rotationSpeed,0));
+            if (currentSpeed < flySpeedSensitivity)
+            {
+                currentSpeed += acceleration;
+            } else if (currentSpeed > flySpeedSensitivity)
+            {
+                currentSpeed = flySpeedSensitivity;
+            }
             
             //TODO increase flight speed with reigns position
             heading = new Vector3(0, heading.y, heading.z);
-            //characterController.Move((transform.forward) * flySpeedSensitivity);
-            rb.AddForce((transform.forward) * flySpeedSensitivity);
+            characterController.Move((transform.forward) * currentSpeed);
+            //rb.AddForce((transform.forward) * flySpeedSensitivity);
+            //targetTransform.Translate((transform.forward) * flySpeedSensitivity);
         }
         else
         {
+            if (currentSpeed < speedSensitivity)
+            {
+                currentSpeed += acceleration;
+            } 
+            else if (currentSpeed > speedSensitivity)
+            {
+                currentSpeed = speedSensitivity;
+            }
+            
             heading = grabbableReigns.position - pivot.position;
-            //characterController.Move(heading * speedSensitivity);
-            rb.AddForce(heading * speedSensitivity);
+            characterController.Move(heading * currentSpeed);
+            //rb.AddForce(heading * speedSensitivity);
+            //targetTransform.Translate(heading * speedSensitivity);
         }
     }
 
@@ -53,6 +87,6 @@ public class Reigns : MonoBehaviour
     {
         float distance = Vector3.Distance(grabbableReigns.position, pivot.position);
 
-        return distance > deadZone;
+        return distance < deadZone;
     }
 }
