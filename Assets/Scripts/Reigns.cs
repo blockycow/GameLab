@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Reigns : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Reigns : MonoBehaviour
     [SerializeField] private InputActionReference FlyToggleAction;
     private bool flying;
     private AudioSource audioSource; 
-    private bool WingFlapSound = false; 
+    private bool wingFlapPlaying = false; 
 
     void Start()
     {
