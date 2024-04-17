@@ -11,6 +11,7 @@ public class Fireball : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] float radius = 20.0F;
     [SerializeField] private GameObject explosionObj;
+    [SerializeField] private AudioClip FireBallSound;
     private void Start()
     {
         if (rb == null)
@@ -22,6 +23,7 @@ public class Fireball : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print(other.gameObject.name);
+        PlayFireBallSound();
         var explosion = Instantiate(explosionObj, transform.position, quaternion.identity);
         explosion.transform.localScale = Vector3.zero;
         explosion.transform.DOScale(radius / 3.0f, 0.2f).SetEase(Ease.OutCubic);
