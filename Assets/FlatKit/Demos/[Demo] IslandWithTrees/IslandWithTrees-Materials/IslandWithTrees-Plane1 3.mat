@@ -7,20 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IslandWithTrees-Plane
+  m_Name: IslandWithTrees-Plane1 3
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DR_SPECULAR_ON
+  - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _GRADIENTSPACE_WORLD
   - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
-  - _UNITYSHADOWMODE_MULTIPLY
   m_InvalidKeywords:
-  - DR_CEL_PRIMARY_ON
-  - _CELPRIMARYMODE_NONE
-  - _FLAT_SHADOWS_ENABLED
+  - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -94,7 +93,7 @@ Material:
     - _CelExtraEnabled: 0
     - _CelNumSteps: 3
     - _CelPrimaryEnabled: 1
-    - _CelPrimaryMode: 0
+    - _CelPrimaryMode: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailMapBlendingMode: 0
@@ -110,9 +109,9 @@ Material:
     - _FlatSmoothness: 0.362
     - _FlatSpecularEdgeSmoothness: 0.897
     - _FlatSpecularEnabled: 1
-    - _FlatSpecularSize: 0.1
+    - _FlatSpecularSize: 0.509
     - _FlatSpecularSmoothness: 0.5
-    - _Flatness: 0.575
+    - _Flatness: 0.37
     - _FlatnessExtra: 1
     - _FlatnessSecondary: 1
     - _GlossMapScale: 1
@@ -146,21 +145,21 @@ Material:
     - _RimEnabled: 0
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
-    - _SelfShadingSize: 0
-    - _SelfShadingSizeExtra: 0.5
-    - _ShadowEdgeSize: 0.05
-    - _ShadowEdgeSizeExtra: 0.05
+    - _SelfShadingSize: 0.246
+    - _SelfShadingSizeExtra: 0.268
+    - _ShadowEdgeSize: 0.023
+    - _ShadowEdgeSizeExtra: 0
     - _ShadowEdgeSmoothness: 0.162
     - _ShadowFalloff: 0.01
     - _SmoothnessTextureChannel: 0
-    - _SpecularEnabled: 0
+    - _SpecularEnabled: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _TextureBlendingMode: 0
     - _TextureImpact: 1
     - _UVSec: 0
-    - _UnityShadowMode: 1
+    - _UnityShadowMode: 0
     - _UnityShadowOcclusion: 0
     - _UnityShadowPower: 0.2
     - _UnityShadowSharpness: 1
@@ -168,12 +167,12 @@ Material:
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.42452827, g: 0.42452827, b: 0.42452827, a: 1}
-    - _Color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+    - _BaseColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+    - _Color: {r: 0.8018868, g: 0.7712685, b: 0.24586153, a: 1}
     - _ColorCelShadow: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _ColorDim: {r: 0.6698113, g: 0.1484959, b: 0.1484959, a: 0.85}
+    - _ColorDim: {r: 0.23018861, g: 0.23018861, b: 0.23018861, a: 0.85}
     - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
-    - _ColorDimExtra: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
+    - _ColorDimExtra: {r: 0.8000001, g: 0.7607844, b: 0.3137255, a: 0.85}
     - _ColorDimSteps: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
     - _ColorGradient: {r: 0.65, g: 0.65, b: 0.65, a: 1}
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
@@ -182,7 +181,7 @@ Material:
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 4.9245777, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.49928805, g: 0.5660378, b: 0.5633972, a: 1}
-    - _FlatSpecularColor: {r: 0.5213154, g: 0.6236126, b: 0.6698113, a: 1}
+    - _FlatSpecularColor: {r: 0.19999999, g: 0.19999999, b: 0.19999999, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}

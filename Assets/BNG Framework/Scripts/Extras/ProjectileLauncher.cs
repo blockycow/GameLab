@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace BNG {
     public class ProjectileLauncher : MonoBehaviour {
@@ -13,6 +14,7 @@ namespace BNG {
         public GameObject ProjectileObject;
 
         public float ProjectileForce = 15f;
+        public float TorqueForce = 5f;
 
         public AudioClip LaunchSound;
 
@@ -62,6 +64,8 @@ namespace BNG {
                 launched.transform.rotation = MuzzleTransform.transform.rotation;
 
                 launched.GetComponentInChildren<Rigidbody>().AddForce(MuzzleTransform.forward * projectileForce, ForceMode.VelocityChange);
+                Vector3 torque = Random.insideUnitSphere * TorqueForce;
+                launched.GetComponentInChildren<Rigidbody>().AddTorque(torque, ForceMode.Impulse);
 
                 VRUtils.Instance.PlaySpatialClipAt(LaunchSound, launched.transform.position, 1f);
 

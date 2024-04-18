@@ -33,23 +33,17 @@ public class Reigns : MonoBehaviour
     private void Update()
     {
         flying = FlyToggleAction.action.inProgress;
-
-        //dragonTransform.localRotation = grabbableReigns.localRotation;
-        //dragonTransform.localRotation = Quaternion.RotateTowards(transform.rotation, grabbableReigns.localRotation, rotationSpeed * Time.deltaTime);
-        
         
         dragonTransform.localRotation = Quaternion.Slerp(dragonTransform.localRotation, grabbableReigns.localRotation, rotationSpeed);
         var dragonTransformEulerAngles = dragonTransform.localEulerAngles;
-        print(dragonTransformEulerAngles.z);
-        if (dragonTransformEulerAngles.z > 300)
-        {
-            dragonTransformEulerAngles.z = dragonTransformEulerAngles.z - 360;
-        }
+        
+        if (dragonTransformEulerAngles.z > 300) { dragonTransformEulerAngles.z -= 360; }
         dragonTransformEulerAngles.z = Mathf.Clamp(dragonTransformEulerAngles.z , -35, 35); 
         
         dragonTransform.localRotation = Quaternion.Euler(dragonTransformEulerAngles);
         characterController.transform.Rotate(0,-dragonTransformEulerAngles.z * Time.deltaTime,0);
     }
+    
     void FixedUpdate()
     {
         var heading = grabbableReigns.localPosition;
