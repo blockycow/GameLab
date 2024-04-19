@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Gnome : MonoBehaviour, ICollidable
 {
@@ -16,5 +18,12 @@ public class Gnome : MonoBehaviour, ICollidable
         
         Vector3 torque = Random.insideUnitSphere * force;
         rb.AddTorque(torque, ForceMode.Impulse);
+    }
+
+    private void Update()
+    {
+        if (transform.position.y > -5000) return;
+        
+        Destroy(this);
     }
 }
