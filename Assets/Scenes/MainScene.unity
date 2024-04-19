@@ -17120,11 +17120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d3b52ea3889d346be1e21def92988c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 1948269382}
-  dragonTransform: {fileID: 293071498}
+  targetTransform: {fileID: 0}
+  dragonTransform: {fileID: 0}
   speedSensitivity: 2
   flySpeedSensitivity: 20
-  acceleration: 0.01
+  acceleration: 0
   rotationSpeed: 0.05
   grabbableReigns: {fileID: 1267933920}
   pivot: {fileID: 1354780010}
