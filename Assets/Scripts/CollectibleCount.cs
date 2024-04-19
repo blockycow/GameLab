@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class CollectibleCount : MonoBehaviour
 {
-    TMPro.TMP_Text text;
+    [SerializeField] TMPro.TMP_Text text;
     int count;
 
     void Awake()
     {
+        if (text != null) return;
         text = GetComponent<TMPro.TMP_Text>();
     }
 
