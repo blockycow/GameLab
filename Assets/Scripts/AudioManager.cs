@@ -5,14 +5,21 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GetInstance();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaySFX(AudioClip clip, Vector3 position)
     {
-        
+        GameObject soundObject = new GameObject("Sound");
+        soundObject.transform.position = position;
+
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.spatialBlend = 1f; 
+        audioSource.Play();
+
+        Destroy(soundObject, clip.length); 
     }
 }

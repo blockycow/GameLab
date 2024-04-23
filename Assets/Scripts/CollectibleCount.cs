@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollectibleCount : MonoBehaviour
 {
     [SerializeField] TMPro.TMP_Text text;
     int count;
 
+    public UnityEvent CollectionCompleted;
+    
     void Awake()
     {
         if (text != null) return;
@@ -20,6 +23,11 @@ public class CollectibleCount : MonoBehaviour
     {
         count++;
         UpdateCount();
+
+        if (count == Collectible.total)
+        {
+            CollectionCompleted.Invoke();
+        }
     }
 
     void UpdateCount()
