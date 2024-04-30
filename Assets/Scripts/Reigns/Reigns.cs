@@ -34,14 +34,17 @@ public class Reigns : MonoBehaviour
     {
         flying = FlyToggleAction.action.inProgress;
         
-        dragonTransform.localRotation = Quaternion.Slerp(dragonTransform.localRotation, grabbableReigns.localRotation, rotationSpeed);
+        var height = grabbableReigns.localPosition.y;
+        
+        // Map the height to a rotation angle
+        float targetRotationAngle = Mathf.Lerp(-25, 25, Mathf.InverseLerp(0.5f, -0.5f, height));
+
+        // Calculate the target rotation based on the angle
+        Quaternion targetRotation = Quaternion.Euler(targetRotationAngle, 0f, 0f);
+        dragonTransform.localRotation = Quaternion.Slerp(dragonTransform.localRotation, targetRotation, rotationSpeed);
         var dragonTransformEulerAngles = dragonTransform.localEulerAngles;
         
-        if (dragonTransformEulerAngles.z > 300) { dragonTransformEulerAngles.z -= 360; }
-        dragonTransformEulerAngles.z = Mathf.Clamp(dragonTransformEulerAngles.z , -35, 35); 
-        
         dragonTransform.localRotation = Quaternion.Euler(dragonTransformEulerAngles);
-        characterController.transform.Rotate(0,-dragonTransformEulerAngles.z * Time.deltaTime,0);
     }
     
     void FixedUpdate()
