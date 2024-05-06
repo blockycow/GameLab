@@ -50,7 +50,7 @@ public class ImmersiveReigns : MonoBehaviour
         {
             if (currentSpeed > 0)
             {
-                currentSpeed -= (acceleration * 2);
+                currentSpeed -= (acceleration * 3);
             }
             else
             {
@@ -68,10 +68,12 @@ public class ImmersiveReigns : MonoBehaviour
             currentSpeed = speedSensitivity;
         }
             
-        heading = grabbableReigns.position - pivot.position;
-        heading = new Vector3(0, heading.y, heading.z);
-        characterController.Move(heading * currentSpeed);
-        //targetTransform.Translate(heading * speedSensitivity);
+        heading = grabbableReigns.localPosition - pivot.localPosition;
+        heading = new Vector3(0f, heading.y, heading.z);
+        var moveSpeed = heading.z * currentSpeed;
+        var globalDir = characterController.transform.TransformDirection(Vector3.forward);
+        characterController.Move(globalDir * moveSpeed);
+        characterController.Move(new Vector3(0, heading.y, 0) * currentSpeed);
     }
 
     bool CheckDeadzone()

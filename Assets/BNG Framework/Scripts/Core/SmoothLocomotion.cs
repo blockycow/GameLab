@@ -282,6 +282,7 @@ namespace BNG {
 
         public float GetFlyAxis()
         {
+            if (FlyAction == null) return 0;
             float axisVal = FlyAction.action.ReadValue<float>();
             return axisVal;
         }

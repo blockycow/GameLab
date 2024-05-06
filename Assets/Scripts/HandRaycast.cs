@@ -21,12 +21,10 @@ public class HandRaycast : MonoBehaviour
             {
                 Shoot(hit.point);
             }
-            Debug.Log("Did Hit");
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
         }
     }
     
