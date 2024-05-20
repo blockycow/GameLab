@@ -10,15 +10,12 @@ public class Reigns : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private Transform dragonTransform;
     [SerializeField] private float speedSensitivity;
-    [SerializeField] private float flySpeedSensitivity;
     [SerializeField] private float acceleration; 
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform grabbableReigns;
     [SerializeField] private Transform pivot;
     [SerializeField] private float deadZone;
 
-    [SerializeField] private InputActionReference FlyToggleAction;
-    private bool flying;
     private Rigidbody rb;
     private CharacterController characterController;
 
@@ -32,7 +29,6 @@ public class Reigns : MonoBehaviour
     
     private void Update()
     {
-        flying = FlyToggleAction.action.inProgress;
         
         var height = grabbableReigns.localPosition.y;
         
@@ -62,39 +58,21 @@ public class Reigns : MonoBehaviour
             }
         }
         
-        if (flying)
+        if (currentSpeed < speedSensitivity)
         {
-            //characterController.transform.Rotate(new Vector3(0, heading.x * rotationSpeed,0));
-            if (currentSpeed < flySpeedSensitivity)
-            {
-                currentSpeed += acceleration;
-            } else if (currentSpeed > flySpeedSensitivity)
-            {
-                currentSpeed = flySpeedSensitivity;
-            }
-            
-            //TODO increase flight speed with reigns position
-            heading = new Vector3(0, heading.y, heading.z);
-            characterController.Move((transform.forward) * currentSpeed);
-            //rb.AddForce((transform.forward) * flySpeedSensitivity);
-            //targetTransform.Translate((transform.forward) * flySpeedSensitivity);
-        }
-        else
+            currentSpeed += acceleration;
+        } 
+        else if (currentSpeed > speedSensitivity)
         {
-            if (currentSpeed < speedSensitivity)
-            {
-                currentSpeed += acceleration;
-            } 
-            else if (currentSpeed > speedSensitivity)
-            {
-                currentSpeed = speedSensitivity;
-            }
-            
-            heading = grabbableReigns.position - pivot.position;
-            characterController.Move(heading * currentSpeed);
-            //rb.AddForce(heading * speedSensitivity);
-            //targetTransform.Translate(heading * speedSensitivity);
+            currentSpeed = speedSensitivity;
         }
+            
+        heading = grabbableReigns.localPosition - pivot.localPosition;
+        heading = new Vector3(0f, heading.y, heading.z);
+        var moveSpeed = heading.z * currentSpeed;
+        var globalDir = characterController.transform.TransformDirection(Vector3.forward);
+        characterController.Move(globalDir * moveSpeed);
+        characterController.Move(new Vector3(0, heading.y, 0) * currentSpeed);
     }
 
     bool CheckDeadzone()

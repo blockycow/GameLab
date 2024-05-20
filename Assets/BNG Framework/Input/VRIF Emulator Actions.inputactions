@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RecenterButton",
+                    "type": "Button",
+                    "id": "dfd4d060-588c-4f09-a6a1-97bc59d624ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -248,6 +257,17 @@
                     "action": "Fly",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e92f2c07-4eb1-4531-9ee6-37fea64e7250",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RecenterButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
