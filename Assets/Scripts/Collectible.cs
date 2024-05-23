@@ -6,6 +6,8 @@ public class Collectible : MonoBehaviour
     public static event Action OnCollected;
     public static int total;
 
+    public GameObject collectibleObject;
+
     void Awake() => total++;
 
     void Update()
@@ -18,7 +20,7 @@ public class Collectible : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnCollected?.Invoke();
-            Destroy(gameObject);
+            Destroy(collectibleObject);
         }
     }
 }

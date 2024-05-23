@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using BNG;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,14 +11,17 @@ public class RecenterView : MonoBehaviour
     [SerializeField] private Transform origin;
     [SerializeField] private Transform target;
 
-    [SerializeField] private InputActionProperty recenterButton;
-    
+
+    private void Start()
+    {
+        Recenter();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (recenterButton.action.WasPressedThisFrame())
+        if (InputBridge.Instance.AButtonDown)
         {
-            print("pressed recenter button");
             Recenter();
         }
     }

@@ -82,4 +82,10 @@ public class ImmersiveReigns : MonoBehaviour
 
         return distance < deadZone;
     }
+
+    public void ResetReignsPosition()
+    {
+        grabbableReigns.localPosition = Vector3.zero;
+        grabbableReigns.localRotation = Quaternion.identity;
+    }
 }
