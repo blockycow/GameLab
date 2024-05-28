@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,6 +29,12 @@ public class CollectibleCount : MonoBehaviour
         {
             CollectionCompleted.Invoke();
         }
+    }
+
+    [Button]
+    public void CompleteCollection()
+    {
+        CollectionCompleted.Invoke();
     }
 
     void UpdateCount()
