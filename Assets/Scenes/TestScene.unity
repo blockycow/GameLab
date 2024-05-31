@@ -6820,12 +6820,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 926981785}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &932886674 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1731441106455382673, guid: ce24cff4cc646ac41aa11aa57d8443ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 1735608249}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &966351027
 GameObject:
   m_ObjectHideFlags: 0
@@ -7227,14 +7221,11 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   dragonTransform: {fileID: 0}
   speedSensitivity: 2
-  flySpeedSensitivity: 20
   acceleration: 0
   rotationSpeed: 1
   grabbableReigns: {fileID: 298698498}
   pivot: {fileID: 323091702}
   deadZone: 0.05
-  FlyToggleAction: {fileID: 83097790271614945, guid: e39f4b35a6db18348b41eb0262520e69,
-    type: 3}
 --- !u!1 &1143770440
 GameObject:
   m_ObjectHideFlags: 0
@@ -9362,48 +9353,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302133796}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1318692166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1734674711390452249, guid: ce24cff4cc646ac41aa11aa57d8443ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 1735608249}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1318692169
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318692166}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1826444
-  m_Height: 2.3652887
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.805551, z: 0.68264437}
---- !u!114 &1318692170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318692166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0050a126f0f9245a640f8a3ea70f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionForce: 5
 --- !u!1 &1342166352
 GameObject:
   m_ObjectHideFlags: 0
@@ -11272,14 +11221,11 @@ MonoBehaviour:
   targetTransform: {fileID: 1948269382}
   dragonTransform: {fileID: 293071498}
   speedSensitivity: 2
-  flySpeedSensitivity: 20
   acceleration: 0.01
   rotationSpeed: 0.05
   grabbableReigns: {fileID: 1267933920}
   pivot: {fileID: 1354780010}
   deadZone: 0.05
-  FlyToggleAction: {fileID: 83097790271614945, guid: e39f4b35a6db18348b41eb0262520e69,
-    type: 3}
 --- !u!1001 &1735608249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13204,6 +13150,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1423354700477294080, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2111099915}
     - targetCorrespondingSourceObject: {fileID: 3166300159474361199, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
       insertIndex: 0
@@ -13212,19 +13162,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1115306799}
-    - targetCorrespondingSourceObject: {fileID: 1731441106455382673, guid: ce24cff4cc646ac41aa11aa57d8443ab,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2111099915}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1734674711390452249, guid: ce24cff4cc646ac41aa11aa57d8443ab,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1318692170}
-    - targetCorrespondingSourceObject: {fileID: 1734674711390452249, guid: ce24cff4cc646ac41aa11aa57d8443ab,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1318692169}
     - targetCorrespondingSourceObject: {fileID: 7444913971416797119, guid: ce24cff4cc646ac41aa11aa57d8443ab,
         type: 3}
       insertIndex: -1
@@ -13550,6 +13488,12 @@ Transform:
   - {fileID: 926981786}
   m_Father: {fileID: 160580717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1789491622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1423354700477294080, guid: ce24cff4cc646ac41aa11aa57d8443ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1735608249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1798884707
 GameObject:
   m_ObjectHideFlags: 0
@@ -15559,7 +15503,7 @@ Transform:
   m_Children:
   - {fileID: 1302133797}
   - {fileID: 782491828}
-  m_Father: {fileID: 932886674}
+  m_Father: {fileID: 1789491622}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 180}
 --- !u!1 &2134467284
 GameObject:
