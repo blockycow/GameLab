@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +8,7 @@ public class CollectibleCount : MonoBehaviour
     [SerializeField] TMPro.TMP_Text text;
     int count;
 
-    public UnityEvent CollectionCompleted;
+    public static Action CollectionCompleted;
     
     void Awake()
     {
@@ -18,7 +19,7 @@ public class CollectibleCount : MonoBehaviour
     void Start() => UpdateCount();
 
     void OnEnable() => Collectible.OnCollected += OnCollectibleCollected;
-    void OnDisable() => Collectible.OnCollected += OnCollectibleCollected;
+    void OnDisable() => Collectible.OnCollected -= OnCollectibleCollected;
 
     void OnCollectibleCollected()
     {
@@ -27,14 +28,14 @@ public class CollectibleCount : MonoBehaviour
 
         if (count == Collectible.total)
         {
-            CollectionCompleted.Invoke();
+            CollectionCompleted?.Invoke();
         }
     }
 
     [Button]
     public void CompleteCollection()
     {
-        CollectionCompleted.Invoke();
+        CollectionCompleted?.Invoke();
     }
 
     void UpdateCount()

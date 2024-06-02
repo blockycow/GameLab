@@ -11,7 +11,13 @@ public class PlayerData
 
     public PlayerData()
     {
-        PlayerName = "Bob";
-        PlayerTime = 99999999999f;
+        PlayerName = "-";
+        PlayerTime = 0f;
+    }
+
+    public PlayerData(string _name, float _time)
+    {
+        PlayerName = _name;
+        PlayerTime = _time;
     }
 }

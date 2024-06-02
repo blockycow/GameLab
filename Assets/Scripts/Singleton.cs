@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T instance;
+    public static T Instance;
 
     public T GetInstance()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = FindObjectOfType<T>();
+            Instance = FindObjectOfType<T>();
         }
-        else if (instance != FindObjectOfType<T>())
+        else if (Instance != FindObjectOfType<T>())
         {
             Destroy(FindObjectOfType<T>());
         }
 
         DontDestroyOnLoad(this.gameObject);
-        return instance;
+        return Instance;
     }
 }
