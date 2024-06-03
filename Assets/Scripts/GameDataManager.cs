@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,12 +9,19 @@ public class GameDataManager : Singleton<GameDataManager>
 {
     string saveFile;
 
-    GameData gameData = new GameData();
 
+    public string PlayerName = "";
+    public GameData gameData = new GameData();
+
+    
     void Awake()
     {
+        GetInstance();
         // Update the path once the persistent path exists.
         saveFile = Application.persistentDataPath + "/gamedata.json";
+        gameData = new GameData();
+        
+        ReadFile();
     }
 
     public void ReadFile()
@@ -42,16 +50,16 @@ public class GameDataManager : Singleton<GameDataManager>
     [Button]
     public void TestSaving()
     {
-        GameData testData = new GameData();
-        testData.PlayerScores = new List<PlayerData>();
-        PlayerData player1 = new PlayerData();
-        PlayerData player2 = new PlayerData();
-        PlayerData player3 = new PlayerData();
-        testData.PlayerScores.Add(player1);
-        testData.PlayerScores.Add(player2);
-        testData.PlayerScores.Add(player3);
-        gameData = testData;
+        gameData = new GameData();
+        gameData.PlayerScores[0] = new PlayerData("Richard", 9000f); 
+        
         WriteFile();
+        int i = 0;
+        foreach (var player in gameData.PlayerScores)
+        {
+            i++;
+            print($"{i}: {player.PlayerName} {player.PlayerTime}");
+        }
     }
     [Button]
     public void TestLoading()
