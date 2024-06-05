@@ -5,21 +5,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This keeps track of the time in the level.
+// -Sandy
 public class TimeManager : Singleton<TimeManager>
 {
-
-    public TMP_Text timerText; // UI Text component to display the timer
+    public TMP_Text timerText;
     public float startTime;
     private bool isRunning = false;
 
     private float elapsedTime;
     
+    // Start the timer when the level starts.
     void Start()
     {
         GetInstance();
         StartTimer();
     }
     
+    // Record the time when all the collectibles are or collected.
     void OnEnable() => CollectibleCount.CollectionCompleted += RecordTime;
     void OnDisable() => CollectibleCount.CollectionCompleted  -= RecordTime;
 
@@ -32,17 +35,20 @@ public class TimeManager : Singleton<TimeManager>
         }
     }
 
+    // Start tracking the time.
     public void StartTimer()
     {
         startTime = Time.time;
         isRunning = true;
     }
 
+    // Stop tracking
     public void StopTimer()
     {
         isRunning = false;
     }
 
+    // Change the timer text to show the player time.
     private void UpdateTimerText(float elapsedTime)
     {
         if (timerText == null) return;
@@ -54,6 +60,8 @@ public class TimeManager : Singleton<TimeManager>
         timerText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
     }
 
+    // Saves the time to the game data and saves the game data on the device.
+    // Loads the titlescreen after saving.
     [Button]
     public void RecordTime()
     {
@@ -67,24 +75,19 @@ public class TimeManager : Singleton<TimeManager>
         {
             if (playerScores[i].PlayerTime >= elapsedTime || playerScores[i].PlayerTime == 0)
             {
-                print("Saving at index: " + i);
                 for (int j = playerScores.Count-1; j > i; j--)
                 {
                     playerScores[j].PlayerName = playerScores[j-1].PlayerName;
                     playerScores[j].PlayerTime = playerScores[j-1].PlayerTime;
-                    print(playerScores[j - 1].PlayerName);
                 }
                 
                 playerScores[i].PlayerName = GameDataManager.Instance.PlayerName;
                 playerScores[i].PlayerTime = elapsedTime;
-                print("Saving: " + playerScores[i].PlayerName);
                 
                 GameDataManager.Instance.WriteFile();
                 SceneManager.LoadScene(0);
                 return;
             }
         }
-        
-        
     }
 }

@@ -5,15 +5,16 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+
+// The manager for all of the game data.
+// -Frieda
 public class GameDataManager : Singleton<GameDataManager>
 {
     string saveFile;
 
-
     public string PlayerName = "";
     public GameData gameData = new GameData();
 
-    
     void Awake()
     {
         GetInstance();
@@ -24,26 +25,22 @@ public class GameDataManager : Singleton<GameDataManager>
         ReadFile();
     }
 
+    // get the file and deserialize its contents.
     public void ReadFile()
     {
-        // Does the file exist?
         if (File.Exists(saveFile))
         {
-            // Read the entire file and save its contents.
             string fileContents = File.ReadAllText(saveFile);
 
-            // Deserialize the JSON data 
-            //  into a pattern matching the GameData class.
             gameData = JsonUtility.FromJson<GameData>(fileContents);
         }
     }
 
+    // Convert data to json and write it to the file.
     public void WriteFile()
     {
-        // Work with JSON
         string jsonString = JsonUtility.ToJson(gameData);
 
-        // Write JSON to file.
         File.WriteAllText(saveFile, jsonString);
     }
 
@@ -61,6 +58,7 @@ public class GameDataManager : Singleton<GameDataManager>
             print($"{i}: {player.PlayerName} {player.PlayerTime}");
         }
     }
+    
     [Button]
     public void TestLoading()
     {

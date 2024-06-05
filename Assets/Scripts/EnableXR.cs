@@ -2,12 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
-/// <summary>
-    /// Unity 2022.3 appears to not always dispose of the loader in XRGeneralSettings.Instance.Manager. This results in the console runtime error "Failed to set DeveloperMode on Start."
-    /// This should only be an issue in the editor, so this script stops the XR loader and then restarts it.
-    /// This script doesn't always activate the loader, maybe due to order of Awake calls, but it works most of time. Exiting Play mode and starting it again usually results in the XR loader launching...
-/// </summary>
-    public class EnableXR : MonoBehaviour
+// A class to fix the unity bug, 
+// where unity doesn't disable XR properly
+// -Nemo
+public class EnableXR : MonoBehaviour
     {
 #if UNITY_EDITOR
         private void Awake()
@@ -32,7 +30,6 @@ using UnityEngine.XR.Management;
             if (XRGeneralSettings.Instance.Manager.activeLoader || XRGeneralSettings.Instance.Manager.isInitializationComplete)
             {
                 DisableXR();
-                // Wait for the next frame, just in case
                 yield return null;
             }
 
@@ -49,9 +46,7 @@ using UnityEngine.XR.Management;
             }
         }
 
-        /// <summary>
-        /// Disables XR
-        /// </summary>
+        // Disables XR
         private void DisableXR()
         {
             // Make sure there is something to de-initialize

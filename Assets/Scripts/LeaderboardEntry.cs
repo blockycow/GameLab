@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// The leaderboard entry object, that shows the time and name of the player
+// -Sandy
 public class LeaderboardEntry : MonoBehaviour
 {
     [SerializeField] private TMP_Text nameTmp;
     [SerializeField] private TMP_Text timeTmp;
 
+    // Sets the time and name on the UI entry
     public void SetStats(string _name, float _time)
     {
         nameTmp.text = _name;
@@ -19,6 +22,7 @@ public class LeaderboardEntry : MonoBehaviour
         timeTmp.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
     }
 
+    // Hides the text when there is no data.
     public void Hide()
     {
         nameTmp.text = "";

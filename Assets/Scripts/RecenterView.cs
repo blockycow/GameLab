@@ -5,19 +5,20 @@ using BNG;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// This class is responsible for resetting the player view.
+// -Nemo
 public class RecenterView : MonoBehaviour
 {
     [SerializeField] private Transform head;
     [SerializeField] private Transform origin;
     [SerializeField] private Transform target;
 
-
+    // Recenter when the game starts
     private void Start()
     {
         Recenter();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (InputBridge.Instance.AButtonDown)
@@ -26,6 +27,7 @@ public class RecenterView : MonoBehaviour
         }
     }
 
+    // Recenter the view based on the floor.
     void Recenter()
     {
         Vector3 offset = head.position - origin.position;

@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+// The collision for when the dragon hits the gnome.
+// -Frieda
 public class Gnome : MonoBehaviour, ICollidable
 {
     [SerializeField] private Rigidbody rb;
-    //[SerializeField] float torqueMagnitude = 5f;
+    
+    // Add a random force to the velocities of the gnome.
     public void Collide(Collider collision, float force)
     {
         var forceSpread = force / 2.0f;
@@ -20,6 +23,7 @@ public class Gnome : MonoBehaviour, ICollidable
         rb.AddTorque(torque, ForceMode.Impulse);
     }
 
+    // delete is the gnome falls too low.
     private void Update()
     {
         if (transform.position.y > -5000) return;

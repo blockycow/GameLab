@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Shoot out a fireball to hit the gnomes with.
+// -Channah
 public class DragonFireball : MonoBehaviour
 {
     [SerializeField] private float force = 5f;
@@ -13,12 +15,14 @@ public class DragonFireball : MonoBehaviour
 
     private void Update()
     {
+        // Shoot when pressing a specific button.
         if (triggerAction.action.triggered)
         {
             Shoot();
         }
     }
 
+    // Create a fireball.
     private void Shoot()
     {
         var ball = Instantiate(fireball, barrel.position, barrel.rotation);

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// A class for anything that needs a cooldown.
+// -Frieda
 [Serializable]
 public class Cooldown
 {

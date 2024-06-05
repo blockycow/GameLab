@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+// The leaderboard class that shows all of the entries.
+// -Sandy
 public class Leaderboard : MonoBehaviour
 {
     public List<LeaderboardEntry> entries;
 
+    //Get all of the entry objects and set their data
     private void Start()
     {
         foreach (var entry in this.GetComponentsInChildren<LeaderboardEntry>())
@@ -17,6 +20,7 @@ public class Leaderboard : MonoBehaviour
         SetLeaderboard();
     }
 
+    // Set the leaderboard data to the saved game data.
     [Button]
     public void SetLeaderboard()
     {
@@ -37,13 +41,15 @@ public class Leaderboard : MonoBehaviour
         }
     }
 
+    // Reset all of the leaderboard data for testing.
     [Button]
-    public void ClearLeaderoard()
+    public void ClearLeaderboard()
     {
         GameDataManager.Instance.gameData = new GameData();
         GameDataManager.Instance.WriteFile(); 
     }
 
+    // Change the name of the player.
     public void ChangeCurrentPlayerName(string _name)
     {
         GameDataManager.Instance.PlayerName = _name;

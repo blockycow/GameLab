@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// The reigns controls for the immersive controls.
+// Most of the code stays the same, except a few lines
+// -Nemo
 public class ImmersiveReigns : MonoBehaviour
 {
     [SerializeField] private Transform targetTransform;
@@ -24,6 +27,8 @@ public class ImmersiveReigns : MonoBehaviour
         characterController = targetTransform.GetComponent<CharacterController>();
     }
     
+    // Set the rotation angle of the dragon to the height of the reigns.
+    // Set the movement rotation of the player based on the angle of the reigns
     private void Update()
     {
         var height = grabbableReigns.localPosition.y;
@@ -43,30 +48,18 @@ public class ImmersiveReigns : MonoBehaviour
         characterController.transform.Rotate(0,-dragonTransformEulerAngles.z * Time.deltaTime * playerRotationSpeed,0);
     }
     
+    // Changes the player movement direction based on the position of the reigns.
+    // Changes the speed of movement also on the reigns position.
     void FixedUpdate()
     {
         var heading = grabbableReigns.localPosition;
-        if(CheckDeadzone())
-        {
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= (acceleration * 3);
-            }
-            else
-            {
-                currentSpeed = 0;
-            }
+        if(CheckDeadzone()) {
+            if (currentSpeed > 0) { currentSpeed -= (acceleration * 3); }
+            else { currentSpeed = 0; }
         }
         
-        
-        if (currentSpeed < speedSensitivity)
-        {
-            currentSpeed += acceleration;
-        } 
-        else if (currentSpeed > speedSensitivity)
-        {
-            currentSpeed = speedSensitivity;
-        }
+        if (currentSpeed < speedSensitivity) { currentSpeed += acceleration; } 
+        else if (currentSpeed > speedSensitivity) { currentSpeed = speedSensitivity; }
             
         heading = grabbableReigns.localPosition - pivot.localPosition;
         heading = new Vector3(0f, heading.y, heading.z);
@@ -76,13 +69,14 @@ public class ImmersiveReigns : MonoBehaviour
         characterController.Move(new Vector3(0, heading.y, 0) * currentSpeed);
     }
 
+    // Check if the reigns are in the dead zone.
     bool CheckDeadzone()
     {
         float distance = Vector3.Distance(grabbableReigns.position, pivot.position);
-
         return distance < deadZone;
     }
 
+    // Reset the position of the reigns after letting go.
     public void ResetReignsPosition()
     {
         grabbableReigns.localPosition = Vector3.zero;

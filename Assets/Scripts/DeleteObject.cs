@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// A component for anything that needs to delete after a few seconds.
+// -Nemo
 public class DeleteObject : MonoBehaviour
 {
     [SerializeField] private GameObject objectToDelete;

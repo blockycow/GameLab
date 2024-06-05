@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// The data list that tracks the top ten player scores.
+// -Frieda
 [Serializable]
 public class GameData
 {

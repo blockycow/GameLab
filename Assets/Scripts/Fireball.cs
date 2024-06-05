@@ -6,11 +6,14 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// The fireball object.
+// -Channah
 public class Fireball : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] float radius = 20.0F;
     [SerializeField] private GameObject explosionObj;
+    
     private void Start()
     {
         if (rb == null)
@@ -19,11 +22,12 @@ public class Fireball : MonoBehaviour
         }
     }
 
+    // When the fireball hits something, it blows up and collides with anything in the radius.
     private void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
         var explosion = Instantiate(explosionObj, transform.position, quaternion.identity);
         explosion.transform.localScale = Vector3.zero;
+        // Smooth the transition of scale through a tween.
         explosion.transform.DOScale(radius / 3.0f, 0.2f).SetEase(Ease.OutCubic);
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);

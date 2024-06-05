@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// A common collectible Object that has a total count and a collect event when picked up
+// -Matthias
 public class Collectible : MonoBehaviour
 {
     public static event Action OnCollected;

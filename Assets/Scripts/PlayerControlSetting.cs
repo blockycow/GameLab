@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
+// The settings for what player controls are chosen.
+// -Bas
 [CreateAssetMenu(menuName = "WoW/PlayerControlSetting", 
     fileName = "PlayerControlSetting",
     order = 0)]

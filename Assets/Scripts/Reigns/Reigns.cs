@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+// The reigns controls for the standard controls.
+// -Nemo
 public class Reigns : MonoBehaviour
 {
     [SerializeField] private Transform targetTransform;
@@ -27,9 +29,9 @@ public class Reigns : MonoBehaviour
         characterController = targetTransform.GetComponent<CharacterController>();
     }
     
+    // Set the rotation angle of the dragon to the height of the reigns.
     private void Update()
     {
-        
         var height = grabbableReigns.localPosition.y;
         
         // Map the height to a rotation angle
@@ -43,29 +45,18 @@ public class Reigns : MonoBehaviour
         dragonTransform.localRotation = Quaternion.Euler(dragonTransformEulerAngles);
     }
     
+    // Changes the player movement direction based on the position of the reigns.
+    // Changes the speed of movement also on the reigns position.
     void FixedUpdate()
     {
         var heading = grabbableReigns.localPosition;
-        if(CheckDeadzone())
-        {
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= (acceleration * 2);
-            }
-            else
-            {
-                currentSpeed = 0;
-            }
+        if(CheckDeadzone()) {
+            if (currentSpeed > 0) { currentSpeed -= (acceleration * 3); }
+            else { currentSpeed = 0; }
         }
         
-        if (currentSpeed < speedSensitivity)
-        {
-            currentSpeed += acceleration;
-        } 
-        else if (currentSpeed > speedSensitivity)
-        {
-            currentSpeed = speedSensitivity;
-        }
+        if (currentSpeed < speedSensitivity) { currentSpeed += acceleration; } 
+        else if (currentSpeed > speedSensitivity) { currentSpeed = speedSensitivity; }
             
         heading = grabbableReigns.localPosition - pivot.localPosition;
         heading = new Vector3(0f, heading.y, heading.z);
@@ -75,6 +66,7 @@ public class Reigns : MonoBehaviour
         characterController.Move(new Vector3(0, heading.y, 0) * currentSpeed);
     }
 
+    // Check if the reigns are in the dead zone.
     bool CheckDeadzone()
     {
         float distance = Vector3.Distance(grabbableReigns.position, pivot.position);

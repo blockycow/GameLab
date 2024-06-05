@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1342269456943628394
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1088694673759625570}
-  m_Layer: 9
-  m_Name: Barrel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1088694673759625570
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342269456943628394}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 7.72, z: -5.33}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8355111727296970920}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3045632659164208891
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,56 +867,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &9155931737470621744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1912583916522290949}
-  - component: {fileID: 3438710866083931215}
-  m_Layer: 9
-  m_Name: Raycaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1912583916522290949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9155931737470621744}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006, y: -0.017, z: 0.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1767478807605697605}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3438710866083931215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9155931737470621744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c35fd1cef368643a5e6efc9c5b295a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 20
-  triggerAction: {fileID: -5982496924579745919, guid: e39f4b35a6db18348b41eb0262520e69,
-    type: 3}
-  barrel: {fileID: 1088694673759625570}
-  fireball: {fileID: 6222649383115435686, guid: ea6551b62a97ac34c802c9335787651f,
-    type: 3}
 --- !u!1001 &2239969703739934584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1235,13 +1154,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7371194617241365741, guid: dc03a465cabc90746a8ab420688757d1,
+        type: 3}
+      propertyPath: RemoteGrabLayers.m_Bits
+      value: 16183
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6567273622351038539, guid: dc03a465cabc90746a8ab420688757d1,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1912583916522290949}
     - targetCorrespondingSourceObject: {fileID: 7371194616433351675, guid: dc03a465cabc90746a8ab420688757d1,
         type: 3}
       insertIndex: 0
@@ -1256,12 +1176,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4909477565386707269}
   m_SourcePrefab: {fileID: 100100000, guid: dc03a465cabc90746a8ab420688757d1, type: 3}
---- !u!4 &1767478807605697605 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6567273622351038539, guid: dc03a465cabc90746a8ab420688757d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 4874297828955427854}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2152565353548765402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6808192234808069332, guid: dc03a465cabc90746a8ab420688757d1,
@@ -2146,11 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9642efa4c584eb469e3e85174b9bd8d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1088694673759625570}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9642efa4c584eb469e3e85174b9bd8d, type: 3}
 --- !u!4 &8355111727296970920 stripped
