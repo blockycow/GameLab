@@ -9,9 +9,11 @@ public class TimeManager : Singleton<TimeManager>
 {
 
     public TMP_Text timerText; // UI Text component to display the timer
-    private float startTime;
+    public float startTime;
     private bool isRunning = false;
 
+    private float elapsedTime;
+    
     void Start()
     {
         GetInstance();
@@ -25,7 +27,7 @@ public class TimeManager : Singleton<TimeManager>
     {
         if (isRunning)
         {
-            float elapsedTime = Time.time - startTime;
+            elapsedTime = Time.time - startTime;
             UpdateTimerText(elapsedTime);
         }
     }
@@ -43,6 +45,8 @@ public class TimeManager : Singleton<TimeManager>
 
     private void UpdateTimerText(float elapsedTime)
     {
+        if (timerText == null) return;
+        
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         int milliseconds = Mathf.FloorToInt((elapsedTime * 1000f) % 1000f);
@@ -54,7 +58,8 @@ public class TimeManager : Singleton<TimeManager>
     public void RecordTime()
     {
         StopTimer();
-        float elapsedTime = Time.time - startTime;
+        elapsedTime = Time.time - startTime;
+        startTime = Time.time;
 
         var playerScores = GameDataManager.Instance.gameData.PlayerScores;
 

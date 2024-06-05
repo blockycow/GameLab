@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 4e2de285e2b303543a8914b7129d6b29
-  m_OcclusionCullingData: {fileID: 36300000, guid: 797605aaba09478469994e061c806375,
+  m_SceneGUID: 80e4457a0cdb1d04a846deaa98c00ba1
+  m_OcclusionCullingData: {fileID: 36300000, guid: 92e9b6751bf6e514691900dc94cfc0f7,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17847404, g: 0.41077134, b: 0.77011275, a: 1}
+  m_IndirectSpecularColor: {r: 0.17963076, g: 0.41304493, b: 0.7746623, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2640,6 +2640,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dragon_island_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed6f54a033cf77d46a25ea38586a931d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2802,6 +2807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: volcano_island2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a7077464f36cc6740b127621eaafa12e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3115,6 +3125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: dragon_island_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68437549711432f4b8930257aa7b1de3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3434,6 +3449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_island
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e542f6bff730c3c4e8446e822ef2db07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3667,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9307506
+      value: 0.94610614
       objectReference: {fileID: 0}
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
@@ -3677,7 +3697,7 @@ PrefabInstance:
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.36565465
+      value: 0.3238568
       objectReference: {fileID: 0}
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
@@ -3692,7 +3712,7 @@ PrefabInstance:
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 42.896
+      value: 37.793
       objectReference: {fileID: 0}
     - target: {fileID: 3552856040254917295, guid: 1b69e962ab8c1064693c123cd8e1afef,
         type: 3}
@@ -4195,6 +4215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: dragon_island_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976071c1bbeb5d7479a3046a1023763e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5286,6 +5311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: balloon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1459806243976757871, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2236484338257598677, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5520,6 +5550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: balloon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459806243976757871, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2236484338257598677, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
         type: 3}
@@ -5861,6 +5896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 360496123}
+  startTime: 0
 --- !u!1001 &1836925120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6015,6 +6051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459806243976757871, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2236484338257598677, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
         type: 3}
@@ -6726,6 +6767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fishing_island_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04b1bf7e52b1cd94fa054101c84dcb99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6829,6 +6875,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: dragon_island_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: acd981524585c7a4ea5c2b9c9305e93c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7962,6 +8013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459806243976757871, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2236484338257598677, guid: fb92bf7c86d9ebc43b0f19f9145efc23,
         type: 3}

@@ -14,6 +14,7 @@ public class CollectibleCount : MonoBehaviour
     {
         if (text != null) return;
         text = GetComponent<TMPro.TMP_Text>();
+        text.color = Color.white;
     }
 
     void Start() => UpdateCount();
@@ -35,6 +36,8 @@ public class CollectibleCount : MonoBehaviour
     [Button]
     public void CompleteCollection()
     {
+        text.text = $"Well done!";
+        text.color = Color.green;
         CollectionCompleted?.Invoke();
     }
 
