@@ -12,4 +12,10 @@ public class MainCanvas : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    // Quit the game.
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
