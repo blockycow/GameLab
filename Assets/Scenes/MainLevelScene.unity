@@ -5720,12 +5720,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 805662291886809640, guid: 6f1b66551ff458946aa3cabf9419ee7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3160510186462994713, guid: 6f1b66551ff458946aa3cabf9419ee7a,
         type: 3}
       propertyPath: m_Name
       value: CollectibleEgg (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 805662291886809640, guid: 6f1b66551ff458946aa3cabf9419ee7a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
