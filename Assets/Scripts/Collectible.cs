@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
     public static int total;
 
     public GameObject collectibleObject;
+    [SerializeField] private AudioClip clip;
 
     void Awake() => total++;
 
@@ -21,6 +22,7 @@ public class Collectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX(clip,transform.position);
             OnCollected?.Invoke();
             Destroy(collectibleObject);
         }

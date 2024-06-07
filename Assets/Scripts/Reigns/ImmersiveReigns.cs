@@ -17,6 +17,8 @@ public class ImmersiveReigns : BaseReigns
     protected override void Update()
     {
         var height = grabbableReigns.localPosition.y;
+        if (height == 0) { return;}
+
         
         // Map the height to a rotation angle
         float targetRotationAngle = Mathf.Lerp(-25, 25, Mathf.InverseLerp(0.5f, -0.5f, height));

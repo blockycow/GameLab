@@ -41,6 +41,7 @@ public class CollectibleCount : MonoBehaviour
     [Button]
     public void CompleteCollection()
     {
+        Collectible.total = 0;
         text.text = $"Well done!";
         text.color = Color.green;
         CollectionCompleted?.Invoke();

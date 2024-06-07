@@ -29,6 +29,7 @@ public class BaseReigns : MonoBehaviour
     protected virtual void Update()
     {
         var height = grabbableReigns.localPosition.y;
+        if (height == 0) { return;}
         
         // Map the height to a rotation angle
         float targetRotationAngle = Mathf.Lerp(-25, 25, Mathf.InverseLerp(0.5f, -0.5f, height));
@@ -55,6 +56,8 @@ public class BaseReigns : MonoBehaviour
         else if (currentSpeed > speedSensitivity) { currentSpeed = speedSensitivity; }
             
         heading = grabbableReigns.localPosition - pivot.localPosition;
+        if (heading == Vector3.zero) { return;}
+        
         heading = new Vector3(0f, heading.y, heading.z);
         var moveSpeed = heading.z * currentSpeed;
         var globalDir = characterController.transform.TransformDirection(Vector3.forward);

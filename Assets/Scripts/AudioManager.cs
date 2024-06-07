@@ -6,6 +6,8 @@ using UnityEngine;
 // -Bas
 public class AudioManager : Singleton<AudioManager>
 {
+
+    [SerializeField] private float sfxVolume = 0.8f;
     void Awake()
     {
         GetInstance();
@@ -19,7 +21,8 @@ public class AudioManager : Singleton<AudioManager>
 
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();
         audioSource.clip = clip;
-        audioSource.spatialBlend = 1f; 
+        audioSource.spatialBlend = 1f;
+        audioSource.volume = sfxVolume;
         audioSource.Play();
 
         Destroy(soundObject, clip.length); 
