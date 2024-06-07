@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BNG;
@@ -19,6 +20,12 @@ public class LevelManager : MonoBehaviour
     {
         var player = Instantiate(controlSetting.playerControls[controlSetting.playerControlIndex],
             spawnPoint.position, spawnPoint.rotation);
+        
+    }
+
+    private void Start()
+    {
+        TimeManager.Instance.StartTimer();
     }
 
     public void EndLevel()
