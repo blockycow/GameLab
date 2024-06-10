@@ -16,7 +16,7 @@ public class TimeRing : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && activated)
+        if (other.CompareTag("Player") && !activated)
         {
             TimeManager.Instance.startTime += addTimeAmount;
             AudioManager.Instance.PlaySFX(clip,transform.position);

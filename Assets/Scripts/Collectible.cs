@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 // A common collectible Object that has a total count and a collect event when picked up
@@ -22,9 +23,15 @@ public class Collectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            AudioManager.Instance.PlaySFX(clip,transform.position);
-            OnCollected?.Invoke();
-            Destroy(collectibleObject);
+            Collect();
         }
+    }
+
+    [Button]
+    public void Collect()
+    {
+        AudioManager.Instance.PlaySFX(clip,transform.position);
+        OnCollected?.Invoke();
+        Destroy(collectibleObject);
     }
 }
