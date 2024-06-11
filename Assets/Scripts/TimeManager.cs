@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,8 @@ public class TimeManager : Singleton<TimeManager>
     private bool isRunning = false;
 
     private float elapsedTime;
+
+    [SerializeField] private GameObject popupObj;
     
     // Start the timer when the level starts.
     void Awake()
@@ -89,5 +92,11 @@ public class TimeManager : Singleton<TimeManager>
                 return;
             }
         }
+    }
+
+    [Button]
+    public void StartTimeChanged()
+    {
+        var popup = Instantiate(popupObj, timerText.transform.position, quaternion.identity, timerText.transform);
     }
 }

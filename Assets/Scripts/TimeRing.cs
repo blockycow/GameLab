@@ -19,6 +19,7 @@ public class TimeRing : MonoBehaviour
         if (other.CompareTag("Player") && !activated)
         {
             TimeManager.Instance.startTime += addTimeAmount;
+            TimeManager.Instance.StartTimeChanged();
             AudioManager.Instance.PlaySFX(clip,transform.position);
             activated = true;
         }
